@@ -22,14 +22,11 @@ var util = require('util');
 var mime = require('mime');
 var multer = require('multer');
 var upload = multer({dest: 'uploads/'});
+var Storage = require('@google-cloud/storage');
+var vision = require('@google-cloud/vision');
+var client = new vision.ImageAnnotatorClient();
 
-// Set up auth
-var gcloud = require('gcloud')({
-  keyFilename: 'key.json',
-  projectId: '<YOUR-PROJECT-ID-HERE>'
-});
-
-var vision = gcloud.vision();
+//TO DO: Add AUTH 
 
 var app = express();
 
